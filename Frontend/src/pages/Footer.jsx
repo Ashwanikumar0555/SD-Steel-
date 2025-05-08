@@ -1,6 +1,5 @@
 "use client"
-import React from "react"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { 
   Phone, 
@@ -14,23 +13,18 @@ import {
   ChevronUp 
 } from "lucide-react"
 import WhatsAppButton from "../common/WhatsAppButton"
-import Logo from "../common/Logo";
+import Logo from "../common/Logo"
 
 export default function Footer() {
-  const [isBrowser, setIsBrowser] = useState(false)
   const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [subscribeSuccess, setSubscribeSuccess] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
 
-  // Check if we're in the browser
   useEffect(() => {
-    // Only run on client-side
+    // Check if we're in the browser
     if (typeof window === "undefined") return
-
-    // Set browser state
-    setIsBrowser(true)
-
+    
     // Scroll listener for "back to top" button
     const handleScrollVisibility = () => {
       setShowScrollTop(window.scrollY > 500)
@@ -42,11 +36,9 @@ export default function Footer() {
 
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault()
-    if (isBrowser && typeof document !== "undefined") {
-      const targetElement = document.getElementById(targetId)
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" })
-      }
+    const targetElement = document.getElementById(targetId)
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" })
     }
   }
 
@@ -119,17 +111,17 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-gradient-to-b from-sky-50 to-sky-100 text-gray-800 relative">
+    <footer className="relative bg-gradient-to-b from-sky-50 to-sky-100 text-gray-800">
       {/* Curved Top Edge */}
       <div className="absolute top-0 left-0 right-0 h-16 overflow-hidden">
-        <div className="absolute -top-16 left-0 right-0 h-16 bg-white rounded-b-[50%] shadow-sm"></div>
+        <div className="absolute -top-16 left-0 right-0 h-16 bg-white rounded-b-full shadow-sm"></div>
       </div>
       
       {/* Scroll to top button */}
       {showScrollTop && (
         <button 
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all z-50 animate-bounce"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all animate-bounce"
           aria-label="Scroll to top"
         >
           <ChevronUp className="h-6 w-6" />
@@ -137,71 +129,67 @@ export default function Footer() {
       )}
 
       {/* CTA Section */}
-      <div className="container mx-auto px-4 md:px-6 py-16 pt-24">
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+      <div className="container mx-auto px-4 py-16 pt-24 md:px-6">
+        <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-8 shadow-xl md:p-12">
           <div className="absolute top-0 left-0 w-full h-full opacity-10">
+            {/* Grid pattern background */}
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grid-pattern)" />
-            </svg>
-            <defs>
               <pattern id="grid-pattern" patternUnits="userSpaceOnUse" width="10" height="10">
                 <rect fill="none" stroke="white" strokeWidth="0.5" width="10" height="10" />
               </pattern>
-            </defs>
+              <rect width="100" height="100" fill="url(#grid-pattern)" />
+            </svg>
           </div>
 
-          <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+          <div className="relative z-10 grid gap-8 md:grid-cols-2 items-center">
             <div>
-              <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white font-medium mb-4">
+              <div className="inline-block px-4 py-2 mb-4 bg-white/20 backdrop-blur-sm rounded-full text-white font-medium">
                 Ready to Elevate Your Construction?
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Quality Steel Products for Your Projects</h2>
-              <p className="text-blue-100 mb-6">
+              <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">Quality Steel Products for Your Projects</h2>
+              <p className="mb-6 text-blue-100">
                 Get in touch with our team for a personalized quote and expert advice on selecting the right steel
                 products for your needs. We're here to support your construction journey.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#quote" onClick={(e) => handleSmoothScroll(e, "quote")}>
-                  <button
-                    className="bg-white text-blue-700 px-6 py-3 rounded-md font-bold hover:bg-blue-50 transition-colors flex items-center gap-2 shadow-md"
-                  >
-                    Request a Quote <ArrowRight className="h-4 w-4" />
-                  </button>
-                </a>
+                <button
+                  onClick={(e) => handleSmoothScroll(e, "quote")}
+                  className="flex items-center gap-2 px-6 py-3 font-bold text-blue-700 bg-white rounded-md shadow-md hover:bg-blue-50 transition-colors"
+                >
+                  Request a Quote <ArrowRight className="w-4 h-4" />
+                </button>
                 <WhatsAppButton />
               </div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-4 text-white">Subscribe to Our Newsletter</h3>
-              <p className="text-blue-100 mb-4">
+            <div className="p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg">
+              <h3 className="mb-4 text-xl font-bold text-white">Subscribe to Our Newsletter</h3>
+              <p className="mb-4 text-blue-100">
                 Stay updated with the latest products, steel market prices, and exclusive offers.
               </p>
-              <form className="flex flex-col gap-2" onSubmit={handleEmailSubmit}>
-                <div className="relative">
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    value={email}
-                    onChange={handleEmailChange}
-                    className="w-full px-4 py-3 rounded-md bg-white/5 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50"
-                    required
-                  />
-                </div>
+              <form onSubmit={handleEmailSubmit} className="flex flex-col gap-2">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  value={email}
+                  onChange={handleEmailChange}
+                  className="w-full px-4 py-3 text-white bg-white/5 border border-white/30 rounded-md placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  required
+                />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`bg-white text-blue-700 px-4 py-3 rounded-md font-medium hover:bg-blue-50 transition-colors shadow-md flex items-center justify-center ${
+                  className={`flex items-center justify-center px-4 py-3 font-medium text-blue-700 bg-white rounded-md shadow-md hover:bg-blue-50 transition-colors ${
                     isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
                   {isSubmitting ? (
-                    <span className="inline-block w-5 h-5 border-2 border-blue-700 border-t-transparent rounded-full animate-spin mr-2"></span>
+                    <span className="inline-block w-5 h-5 mr-2 border-2 border-blue-700 border-t-transparent rounded-full animate-spin"></span>
                   ) : subscribeSuccess ? (
                     "Subscribed!"
                   ) : (
                     <>
-                      Subscribe <Send className="h-5 w-5 ml-2" />
+                      Subscribe <Send className="w-5 h-5 ml-2" />
                     </>
                   )}
                 </button>
@@ -212,37 +200,37 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container mx-auto px-4 md:px-6 pt-8 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+      <div className="container mx-auto px-4 pt-8 pb-12 md:px-6">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-6">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Logo variant="light" size="large" />
-            <p className="text-gray-700 my-6 max-w-md">
+            <p className="my-6 max-w-md text-gray-700">
               Premium steel supplier serving West Bengal since 2005. We provide high-quality steel products for
               construction and industrial applications, sourced directly from top manufacturers.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  <Phone className="h-5 w-5 text-blue-700" />
+                <div className="p-2 bg-blue-100 rounded-full">
+                  <Phone className="w-5 h-5 text-blue-700" />
                 </div>
                 <a href="tel:+919053719053" className="text-gray-700 hover:text-blue-700 transition-colors">
                   +91 90537 19053
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <div className="bg-blue-100 p-2 rounded-full">
-                  <Mail className="h-5 w-5 text-blue-700" />
+                <div className="p-2 bg-blue-100 rounded-full">
+                  <Mail className="w-5 h-5 text-blue-700" />
                 </div>
                 <a href="mailto:info@shridurgasteel.in" className="text-gray-700 hover:text-blue-700 transition-colors">
                   info@shridurgasteel.in
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <div className="bg-blue-100 p-2 rounded-full mt-1">
-                  <MapPin className="h-5 w-5 text-blue-700" />
+                <div className="p-2 mt-1 bg-blue-100 rounded-full">
+                  <MapPin className="w-5 h-5 text-blue-700" />
                 </div>
-                <address className="text-gray-700 not-italic">
+                <address className="not-italic text-gray-700">
                   Shri Durga Steel
                   <br />
                   123 Steel Market Road
@@ -254,13 +242,13 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-6 flex gap-4">
+            <div className="flex gap-4 mt-6">
               <WhatsAppButton showText={false} className="!bg-blue-100 hover:!bg-green-600/80 text-blue-700 hover:text-white" />
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-100 p-3 rounded-full hover:bg-blue-700 text-blue-700 hover:text-white transition-colors"
+                className="p-3 text-blue-700 bg-blue-100 rounded-full hover:bg-blue-700 hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -271,7 +259,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-100 p-3 rounded-full hover:bg-blue-700 text-blue-700 hover:text-white transition-colors"
+                className="p-3 text-blue-700 bg-blue-100 rounded-full hover:bg-blue-700 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -282,7 +270,7 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-100 p-3 rounded-full hover:bg-blue-700 text-blue-700 hover:text-white transition-colors"
+                className="p-3 text-blue-700 bg-blue-100 rounded-full hover:bg-blue-700 hover:text-white transition-colors"
                 aria-label="Facebook"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -295,13 +283,13 @@ export default function Footer() {
           {/* Links */}
           {footerLinks.map((section, index) => (
             <div key={index}>
-              <h4 className="text-lg font-bold mb-6 text-blue-700">{section.title}</h4>
+              <h4 className="mb-6 text-lg font-bold text-blue-700">{section.title}</h4>
               <ul className="space-y-4">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <a
                       href={link.href}
-                      className="text-gray-600 hover:text-blue-700 transition-colors flex items-center group"
+                      className="flex items-center text-gray-600 hover:text-blue-700 transition-colors group"
                       onClick={(e) => {
                         if (link.href.startsWith("#") && link.id) {
                           handleSmoothScroll(e, link.id)
@@ -309,7 +297,7 @@ export default function Footer() {
                       }}
                     >
                       <span>{link.name}</span>
-                      <ArrowRight className="h-4 w-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      <ArrowRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     </a>
                   </li>
                 ))}
@@ -318,16 +306,16 @@ export default function Footer() {
           ))}
 
           {/* Business Hours */}
-          <div className="lg:col-span-1 md:col-span-2">
-            <h4 className="text-lg font-bold mb-6 text-blue-700">Business Hours</h4>
+          <div className="md:col-span-2 lg:col-span-1">
+            <h4 className="mb-6 text-lg font-bold text-blue-700">Business Hours</h4>
             <ul className="space-y-3">
               {businessHours.map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <div className="bg-blue-100 p-2 rounded-full mr-3 mt-1">
+                  <div className="p-2 mr-3 mt-1 bg-blue-100 rounded-full">
                     {item.day === "Sunday" ? (
-                      <Calendar className="h-4 w-4 text-blue-700" />
+                      <Calendar className="w-4 h-4 text-blue-700" />
                     ) : (
-                      <Clock className="h-4 w-4 text-blue-700" />
+                      <Clock className="w-4 h-4 text-blue-700" />
                     )}
                   </div>
                   <div>
@@ -339,10 +327,10 @@ export default function Footer() {
             </ul>
             
             {/* Awards/Certifications */}
-            <h4 className="text-lg font-bold mb-4 mt-6 text-blue-700">Certifications</h4>
-            <div className="flex gap-2 flex-wrap">
+            <h4 className="mt-6 mb-4 text-lg font-bold text-blue-700">Certifications</h4>
+            <div className="flex flex-wrap gap-2">
               {['ISO 9001', 'IS 1786', 'CE Mark'].map((cert, index) => (
-                <span key={index} className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-700">
+                <span key={index} className="inline-flex items-center px-3 py-1 text-sm text-blue-700 bg-blue-100 rounded-full">
                   <Star className="w-3 h-3 mr-1" />
                   {cert}
                 </span>
@@ -351,13 +339,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Map Section */}
-        <div className="mt-12 bg-white rounded-lg shadow-md p-4">
-          <h4 className="text-lg font-bold mb-4 text-blue-700 flex items-center">
-            <MapPin className="h-5 w-5 mr-2" />
+        {/* Map Section
+        <div className="p-4 mt-12 bg-white rounded-lg shadow-md">
+          <h4 className="flex items-center mb-4 text-lg font-bold text-blue-700">
+            <MapPin className="w-5 h-5 mr-2" />
             Find Us
           </h4>
-          <div className="relative h-64 w-full rounded-lg overflow-hidden">
+          <div className="relative w-full h-64 overflow-hidden rounded-lg">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.0410522173456!2d88.3517!3d22.5726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDM0JzIxLjQiTiA4OMKwMjEnMDYuMSJF!5e0!3m2!1sen!2sin!4v1618568119599!5m2!1sen!2sin" 
               className="absolute top-0 left-0 w-full h-full border-0" 
@@ -366,21 +354,21 @@ export default function Footer() {
               title="Shri Durga Steel location"
             ></iframe>
           </div>
-        </div>
+        </div> */}
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-blue-200 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-600 text-sm text-center md:text-left mb-4 md:mb-0">
+        <div className="flex flex-col items-center justify-between pt-8 mt-12 border-t border-blue-200 md:flex-row">
+          <div className="mb-4 text-sm text-center text-gray-600 md:text-left md:mb-0">
             <p>&copy; {new Date().getFullYear()} Shri Durga Steel. All rights reserved.</p>
           </div>
           <div className="flex gap-6">
-            <Link href="/terms-conditions" className="text-gray-600 text-sm hover:text-blue-700 transition-colors">
+            <Link to="/terms-conditions" className="text-sm text-gray-600 hover:text-blue-700 transition-colors">
               Terms & Conditions
             </Link>
-            <Link href="/privacy-policy" className="text-gray-600 text-sm hover:text-blue-700 transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-gray-600 hover:text-blue-700 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/sitemap" className="text-gray-600 text-sm hover:text-blue-700 transition-colors">
+            <Link to="/sitemap" className="text-sm text-gray-600 hover:text-blue-700 transition-colors">
               Sitemap
             </Link>
           </div>

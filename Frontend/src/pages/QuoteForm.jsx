@@ -351,7 +351,7 @@ export default function QuoteForm() {
                   />
                   {formErrors.deliveryLocation && <p className="text-red-500 text-xs mt-1 error-message">{formErrors.deliveryLocation}</p>}
                 </div>
-                <div>
+                {/* <div>
                   <label className="block text-sm font-medium text-blue-800 mb-1">Preferred Delivery Date</label>
                   <div className="flex items-center border border-blue-200 rounded-md focus-within:ring-2 focus-within:ring-blue-500 transition-all">
                     <div className="flex items-center justify-center px-3 border-r border-blue-200">
@@ -365,7 +365,7 @@ export default function QuoteForm() {
                       className="w-full px-4 py-3 focus:outline-none rounded-md"
                     />
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div>

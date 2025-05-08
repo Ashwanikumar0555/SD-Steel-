@@ -279,7 +279,7 @@ export default function ContactSection() {
                               value={formData.phone}
                               onChange={handleChange}
                               required
-                              placeholder="+91 98765 43210"
+                              placeholder="+91 90537 19053"
                               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                             />
                           </motion.div>
