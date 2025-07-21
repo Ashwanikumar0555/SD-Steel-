@@ -1,4 +1,5 @@
-////////////removed animation ////
+
+//////////removed animation ////
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Menu, X, ChevronRight, Quote, Phone, Mail, Search, MapPin } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
@@ -98,6 +99,14 @@ export default function Navbar() {
 
   const popularSearches = ["Steel Pipes", "MS Plates", "TMT Bars", "GI Sheets", "Steel Angles", "Price List"];
 
+  // Helper function to scroll to top after navigation
+  const handleNavClick = (to, onClick) => {
+    if (onClick) onClick();
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 0);
+  };
+
   return (
     <div>
       {/* Main Navbar */}
@@ -133,6 +142,7 @@ export default function Navbar() {
                       : "text-gray-700 hover:text-blue-600 hover:bg-blue-50/50"
                     }
                   `}
+                  onClick={() => handleNavClick(link.path)}
                 >
                   {link.name}
                 </NavLink>
@@ -248,7 +258,7 @@ export default function Navbar() {
                   <Link
                     key={link.id}
                     to={link.path}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => { setIsMenuOpen(false); handleNavClick(link.path); }}
                     className={`flex items-center justify-between py-3 px-4 rounded-lg transition-colors duration-200 ${
                       isActive
                         ? "text-blue-700 bg-blue-50 font-semibold"

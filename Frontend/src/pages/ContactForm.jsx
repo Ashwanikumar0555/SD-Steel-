@@ -105,10 +105,10 @@ export default function ContactSection() {
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
                     <a 
-                      href="tel:+919053719053" 
+                      href="tel:+918708275179" 
                       className="text-blue-600 hover:text-blue-800 text-lg font-medium transition-colors"
                     >
-                      +91 90537 19053
+                      87082 75179
                     </a>
                   </div>
                 </motion.div>
@@ -120,10 +120,10 @@ export default function ContactSection() {
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
                     <a 
-                      href="mailto:info@shridurgasteel.in" 
+                      href="mailto:sawariyatraders@gmail.com" 
                       className="text-blue-600 hover:text-blue-800 text-lg font-medium transition-colors"
                     >
-                      info@shridurgasteel.in
+                      sawariyatraders@gmail.com
                     </a>
                   </div>
                 </motion.div>
@@ -135,9 +135,10 @@ export default function ContactSection() {
                   <div>
                     <h4 className="font-semibold text-gray-900">Office Address</h4>
                     <address className="not-italic text-gray-700">
-                      Shri Durga Steel,<br />
-                      123 Steel Market Road,<br />
-                      Kolkata, West Bengal 700001, India
+                      Sawariya Traders,<br />
+                      CHOUDHRY DHRAM KANTA,<br />
+                      GOVINDGARH ROAD, RAMGARH,<br />
+                      ALWAR (RAJ.)
                     </address>
                   </div>
                 </motion.div>
@@ -166,13 +167,15 @@ export default function ContactSection() {
                 </motion.div>
               </div>
               
+              {/* WhatsApp and Get Directions in sidebar */}
               <div className="p-6 bg-blue-50">
-                <div className="flex flex-wrap gap-4">
-                  <a href="https://wa.me/919053719053" className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition-colors">
+                <div className="flex flex-wrap gap-4 items-center">
+                  <a href="https://wa.me/918708275179" className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition-colors shadow">
                     <MessageSquare className="h-4 w-4" />
                     <span>WhatsApp</span>
+                    <span className="ml-2 font-semibold">87082 75179</span>
                   </a>
-                  <a href="https://goo.gl/maps/yourLocation" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors">
+                  <a href="https://www.google.com/maps/search/?api=1&query=CHOUDHRY+DHRAM+KANTA,+GOVINDGARH+ROAD,+RAMGARH,+ALWAR+(RAJ.)" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors shadow font-semibold">
                     <ExternalLink className="h-4 w-4" />
                     <span>Get Directions</span>
                   </a>
@@ -221,7 +224,7 @@ export default function ContactSection() {
                         </div>
                         <h3 className="text-2xl font-bold text-green-800 mb-4">Message Sent Successfully!</h3>
                         <p className="text-green-700 mb-6 max-w-md">
-                          Thank you for reaching out to Shri Durga Steel. Our team will review your inquiry and get back to you as soon as possible.
+                          Thank you for reaching out to Sawariya Traders. Our team will review your inquiry and get back to you as soon as possible.
                         </p>
                       </motion.div>
                     ) : (
@@ -279,7 +282,7 @@ export default function ContactSection() {
                               value={formData.phone}
                               onChange={handleChange}
                               required
-                              placeholder="+91 90537 19053"
+                              placeholder="87082 75179 (e.g. 87082 75179)"
                               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                             />
                           </motion.div>
@@ -362,7 +365,7 @@ export default function ContactSection() {
                   <div className="rounded-lg overflow-hidden h-[500px] relative">
                     {/* Using iframe for embedding Google Maps */}
                     <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.1629913017344!2d88.34301907594117!3d22.569613133786504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277aa5b44be29%3A0x5d0aa34ecdf13ecd!2sKolkata%2C%20West%20Bengal%20700001!5e0!3m2!1sen!2sin!4v1713861421799!5m2!1sen!2sin"
+                      src="https://www.google.com/maps?q=CHOUDHRY+DHRAM+KANTA,+GOVINDGARH+ROAD,+RAMGARH,+ALWAR+(RAJ.)&output=embed"
                       width="100%" 
                       height="100%" 
                       style={{ border: 0 }} 
@@ -373,18 +376,19 @@ export default function ContactSection() {
                       className="absolute inset-0"
                     ></iframe>
                     
-                    {/* Map overlay with quick company info */}
+                    {/* Map overlay with correct address and directions */}
                     <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-xs">
-                      <h4 className="font-bold text-blue-800 mb-2">Shri Durga Steel</h4>
+                      <h4 className="font-bold text-blue-800 mb-2">Sawariya Traders</h4>
                       <p className="text-sm text-gray-700 mb-3">
-                        123 Steel Market Road,<br/>
-                        Kolkata, West Bengal 700001, India
+                        CHOUDHRY DHRAM KANTA,<br/>
+                        GOVINDGARH ROAD, RAMGARH,<br/>
+                        ALWAR (RAJ.)
                       </p>
                       <a 
-                        href="https://goo.gl/maps/yourLocation" 
+                        href="https://www.google.com/maps/search/?api=1&query=CHOUDHRY+DHRAM+KANTA,+GOVINDGARH+ROAD,+RAMGARH,+ALWAR+(RAJ.)" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800"
+                        className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800"
                       >
                         <ExternalLink className="h-3 w-3 mr-1" />
                         Get Directions
@@ -408,7 +412,7 @@ export default function ContactSection() {
           <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-6 rounded-xl shadow-lg">
             <h3 className="text-xl font-bold mb-3">Quick Quotes</h3>
             <p className="mb-4 text-blue-100">Need a fast estimate for your steel requirements? Our team is ready to help.</p>
-            <a href="tel:+919053719053" className="inline-flex items-center bg-white text-blue-700 px-4 py-2 rounded-md font-medium hover:bg-blue-50 transition-colors">
+            <a href="tel:+918708275179" className="inline-flex items-center bg-white text-blue-700 px-4 py-2 rounded-md font-medium hover:bg-blue-50 transition-colors">
               <Phone className="h-4 w-4 mr-2" />
               Call Now
             </a>
@@ -417,7 +421,7 @@ export default function ContactSection() {
           <div className="bg-gradient-to-br from-blue-700 to-blue-900 text-white p-6 rounded-xl shadow-lg">
             <h3 className="text-xl font-bold mb-3">WhatsApp Support</h3>
             <p className="mb-4 text-blue-100">Chat with our team directly through WhatsApp for quick responses to your queries.</p>
-            <a href="https://wa.me/919053719053" className="inline-flex items-center bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">
+            <a href="https://wa.me/918708275179" className="inline-flex items-center bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">
               <MessageSquare className="h-4 w-4 mr-2" />
               Chat Now
             </a>
@@ -426,7 +430,7 @@ export default function ContactSection() {
           <div className="bg-gradient-to-br from-blue-800 to-blue-950 text-white p-6 rounded-xl shadow-lg">
             <h3 className="text-xl font-bold mb-3">Email Inquiry</h3>
             <p className="mb-4 text-blue-100">Send us detailed requirements or documentation for comprehensive solutions.</p>
-            <a href="mailto:info@shridurgasteel.in" className="inline-flex items-center bg-white text-blue-700 px-4 py-2 rounded-md font-medium hover:bg-blue-50 transition-colors">
+            <a href="mailto:sawariyatraders@gmail.com" className="inline-flex items-center bg-white text-blue-700 px-4 py-2 rounded-md font-medium hover:bg-blue-50 transition-colors">
               <Mail className="h-4 w-4 mr-2" />
               Email Us
             </a>
