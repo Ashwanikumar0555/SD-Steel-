@@ -205,6 +205,7 @@ import {
   Check, Home, Shield, Award, ArrowRight, 
   Star, ChevronRight, MessageCircle, Phone
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function DreamHome() {
   const ref = useRef(null);
@@ -393,20 +394,14 @@ export default function DreamHome() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </motion.button>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-md font-medium hover:bg-blue-50 transition-colors"
-                >
-                  Request a Quote
-                </motion.button>
+               
               </div>
             </motion.div>
 
             <motion.div style={{ y, opacity }} className="relative order-1 md:order-2">
               <div className="rounded-xl overflow-hidden shadow-2xl">
                 <img
-                  src="/api/placeholder/800/600"
+                  src="https://ik.imagekit.io/xzjipji0j/house3.png?updatedAt=1753075319075"
                   alt="Modern Home Construction"
                   className="w-full h-full object-cover"
                 />
@@ -476,7 +471,7 @@ export default function DreamHome() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  src="/api/placeholder/400/300"
+                  src="https://ik.imagekit.io/xzjipji0j/MS%20Pipe%20Steel%20.jpg?updatedAt=1752817306534"
                   alt="Steel strength comparison"
                   className="rounded-lg shadow-md max-w-full h-auto"
                 />
